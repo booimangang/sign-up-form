@@ -69,11 +69,11 @@ fieldset {
 .input-field {
   display: flex;
   flex-wrap: wrap;
-  align-items: center;
+  /* align-items: center; */
   margin: 2rem 0;
 }
 
-.input-field > * {
+.input-field > div {
   width: 50%;
   padding: 8px 0;
 }
@@ -86,20 +86,26 @@ input {
   padding-left: 5px;
   color: black;
   font-size: 1rem;
-  letter-spacing: 0.1em;
+  letter-spacing: 0.05em;
   font-weight: 600;
 }
 
-input:invalid {
+/* input:invalid {
   background-color: ivory;
   border: none;
   outline: 2px solid rgb(212, 10, 10);
-}
+} */
 
 input:focus,
 .submit-btn:focus {
   border: none;
-  outline: 4px solid rgb(10, 39, 231);
+  outline: 4px solid rgb(182, 49, 235);
+}
+
+.error-warning {
+  color: red;
+  height: 1.5em;
+  display: block;
 }
 
 .show-password-toggle-tbn {
@@ -109,7 +115,8 @@ input:focus,
   text-align: right;
   font-size: 1rem;
   color: rgb(226, 43, 180);
-  margin-right: 2.5%;
+  margin-right: 4.5%;
+  float: right;
 }
 
 #password-condition {

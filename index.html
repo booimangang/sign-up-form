@@ -22,7 +22,7 @@
           </h1>
           <h2 class="second-header">sign up now to get started.</h2>
         </div>
-        <form>
+        <form id="form">
           <fieldset class="input-field">
             <!-- <legend>Fill in the required information</legend> -->
             <div>
@@ -34,6 +34,7 @@
                 minlength="4"
                 required
               />
+              <span class="error-warning first-name-warning"></span>
             </div>
             <div>
               <label for="last-name">Last Name (optional)</label>
@@ -41,8 +42,10 @@
             </div>
             <div>
               <label for="email">Email (required)</label>
-              <input type="email" name="email" id="email" required />
+              <input type="email" name="email" id="email" />
+              <span class="error-warning email-warning"> </span>
             </div>
+
             <div>
               <label for="phone-number">Phone Number (optional)</label>
               <input type="tel" name="phone-number" id="phone-number" />
@@ -53,9 +56,11 @@
                 type="password"
                 name="password"
                 id="password"
+                pattern=".{8,}"
                 required
                 aria-describedby="password-condition"
               />
+              <span class="error-warning invalid-password-warning"> </span>
             </div>
 
             <!-- pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}"  -->
@@ -68,21 +73,24 @@
                 id="confirm-password"
                 required
               />
+              <span class="error-warning unmatch-password-warning"></span>
+              <button
+                type="button"
+                class="show-password-toggle-tbn"
+                aria-controls="password"
+              >
+                show password
+              </button>
             </div>
-            <button
-              type="button"
-              class="show-password-toggle-tbn"
-              aria-controls="password"
-            >
-              show password
-            </button>
           </fieldset>
           <div>
             <p id="password-condition">
               *password must minimum of 8 characters and contained at least one
               uppercase, lowercase, number and symbol.
             </p>
-            <button type="submit" class="submit-btn">create account</button>
+            <button type="submit" name="submit" class="submit-btn">
+              create account
+            </button>
           </div>
 
           <p>Already have an account? <a class="highlighted"> Log in </a></p>
