@@ -5,7 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="./style.css" />
-    <script src="./script.js"></script>
+    <link rel="icon" type="image/x-icon" href="./img/favicon.png" />
+    <script src="./script.js" defer></script>
     <title>Peripheral</title>
   </head>
   <body>
@@ -15,7 +16,7 @@
       </div>
       <div class="form-field">
         <div class="information-region">
-          <h1>
+          <h1 class="main-header">
             explore alternate realities through the technology of
             <span class="highlighted">quantum tunneling</span>.
           </h1>
@@ -26,7 +27,13 @@
             <!-- <legend>Fill in the required information</legend> -->
             <div>
               <label for="first-name">First Name (required)</label>
-              <input type="text" name="first-name" id="first-name" required />
+              <input
+                type="text"
+                name="first-name"
+                id="first-name"
+                minlength="4"
+                required
+              />
             </div>
             <div>
               <label for="last-name">Last Name (optional)</label>
@@ -50,6 +57,9 @@
                 aria-describedby="password-condition"
               />
             </div>
+
+            <!-- pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}"  -->
+
             <div>
               <label for="confirm-password">Confirm Password (required)</label>
               <input
@@ -59,18 +69,29 @@
                 required
               />
             </div>
+            <button
+              type="button"
+              class="show-password-toggle-tbn"
+              aria-controls="password"
+            >
+              show password
+            </button>
           </fieldset>
           <div>
             <p id="password-condition">
               *password must minimum of 8 characters and contained at least one
               uppercase, lowercase, number and symbol.
             </p>
-            <button type="submit">create account</button>
+            <button type="submit" class="submit-btn">create account</button>
           </div>
 
           <p>Already have an account? <a class="highlighted"> Log in </a></p>
         </form>
       </div>
     </main>
+    <div class="github-signature">
+      <a href="http://https://github.com/booimangang">Bo Ma</a>
+      <img src="./img/github.png" alt="" />
+    </div>
   </body>
 </html>

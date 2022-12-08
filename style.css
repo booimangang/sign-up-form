@@ -15,15 +15,24 @@
 }
 
 body {
-  background-color: hsl(288, 55%, 10%);
+  background-color: #220b28;
+}
+
+a {
+  text-decoration: none;
 }
 
 .highlighted {
   color: rgb(226, 43, 180);
 }
 
+.main-header {
+  line-height: 1em;
+}
+
 .second-header {
   margin-top: 15px;
+  font-size: var(--fs-small);
 }
 
 .container {
@@ -66,7 +75,7 @@ fieldset {
 
 .input-field > * {
   width: 50%;
-  padding: 6px 0;
+  padding: 8px 0;
 }
 
 input {
@@ -74,27 +83,40 @@ input {
   width: 95%;
   height: 30px;
   margin: 5px 0;
+  padding-left: 5px;
   color: black;
+  font-size: 1rem;
+  letter-spacing: 0.1em;
   font-weight: 600;
 }
 
 input:invalid {
   background-color: ivory;
   border: none;
-  outline: 2px solid rgb(179, 52, 243);
+  outline: 2px solid rgb(212, 10, 10);
 }
 
-input:focus {
-  background-color: ivory;
+input:focus,
+.submit-btn:focus {
   border: none;
-  outline: 4px solid rgb(241, 56, 198);
+  outline: 4px solid rgb(10, 39, 231);
+}
+
+.show-password-toggle-tbn {
+  background: none;
+  border: none;
+  margin-left: auto;
+  text-align: right;
+  font-size: 1rem;
+  color: rgb(226, 43, 180);
+  margin-right: 2.5%;
 }
 
 #password-condition {
   color: rgb(226, 43, 180);
 }
 
-button {
+.submit-btn {
   background-color: rgba(226, 43, 180, 0.8);
   font-size: var(--fs-small);
   padding: 0.2em 0.5em 0.4em;
@@ -104,4 +126,34 @@ button {
 
 p {
   margin: 1rem 0;
+}
+
+.error {
+  width: 100%;
+  padding: 0;
+
+  font-size: 80%;
+  color: white;
+  background-color: #900;
+  border-radius: 0 0 5px 5px;
+
+  box-sizing: border-box;
+}
+
+.error.active {
+  padding: 0.3em;
+}
+
+.github-signature {
+  display: flex;
+  justify-content: right;
+  align-items: center;
+  margin-top: -60px;
+  margin-right: 30px;
+  float: right;
+}
+
+.github-signature img {
+  width: 20px;
+  margin-left: 10px;
 }
