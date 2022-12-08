@@ -41,26 +41,28 @@
               <input type="tel" name="phone-number" id="phone-number" />
             </div>
             <div>
-              <label for="password">Password*</label>
+              <label for="password">Password (required)*</label>
               <input
                 type="password"
                 name="password"
                 id="password"
+                required
                 aria-describedby="password-condition"
               />
             </div>
             <div>
-              <label for="confirm-password">Confirm Password</label>
+              <label for="confirm-password">Confirm Password (required)</label>
               <input
                 type="password"
                 name="confirm-password"
                 id="confirm-password"
+                required
               />
             </div>
           </fieldset>
           <div>
-            <p>
-              *password must be at least 8 charater and contained at least one
+            <p id="password-condition">
+              *password must minimum of 8 characters and contained at least one
               uppercase, lowercase, number and symbol.
             </p>
             <button type="submit">create account</button>

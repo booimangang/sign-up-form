@@ -74,6 +74,24 @@ input {
   width: 95%;
   height: 30px;
   margin: 5px 0;
+  color: black;
+  font-weight: 600;
+}
+
+input:invalid {
+  background-color: ivory;
+  border: none;
+  outline: 2px solid rgb(179, 52, 243);
+}
+
+input:focus {
+  background-color: ivory;
+  border: none;
+  outline: 4px solid rgb(241, 56, 198);
+}
+
+#password-condition {
+  color: rgb(226, 43, 180);
 }
 
 button {
