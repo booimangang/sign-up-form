@@ -13,6 +13,10 @@
     <main class="container main">
       <div class="img-container">
         <h1 class="title-name">PERIPHERAL</h1>
+        <div class="github-signature">
+          <a href="http://https://github.com/booimangang">Bo Ma</a>
+          <img src="./img/github.png" alt="" />
+        </div>
       </div>
       <div class="form-field">
         <div class="information-region">
@@ -32,7 +36,6 @@
                 name="first-name"
                 id="first-name"
                 minlength="4"
-                required
               />
               <span class="error-warning first-name-warning"></span>
             </div>
@@ -56,14 +59,14 @@
                 type="password"
                 name="password"
                 id="password"
-                pattern=".{8,}"
+                pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
                 required
                 aria-describedby="password-condition"
               />
               <span class="error-warning invalid-password-warning"> </span>
             </div>
 
-            <!-- pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}"  -->
+            <!-- pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"  -->
 
             <div>
               <label for="confirm-password">Confirm Password (required)</label>
@@ -71,7 +74,6 @@
                 type="password"
                 name="confirm-password"
                 id="confirm-password"
-                required
               />
               <span class="error-warning unmatch-password-warning"></span>
               <button
@@ -85,21 +87,18 @@
           </fieldset>
           <div>
             <p id="password-condition">
-              *password must minimum of 8 characters and contained at least one
-              uppercase, lowercase, number and symbol.
+              *password must contain 8 or more characters that are of at least
+              one number, and one uppercase and lowercase letter.
             </p>
             <button type="submit" name="submit" class="submit-btn">
               create account
             </button>
+            <div class="log-in-instead">
+              Already have an account? <a class="highlighted"> Log in </a>
+            </div>
           </div>
-
-          <p>Already have an account? <a class="highlighted"> Log in </a></p>
         </form>
       </div>
     </main>
-    <div class="github-signature">
-      <a href="http://https://github.com/booimangang">Bo Ma</a>
-      <img src="./img/github.png" alt="" />
-    </div>
   </body>
 </html>

@@ -28,6 +28,7 @@ a {
 
 .main-header {
   line-height: 1em;
+  /* font-size: var(--fs-medium); */
 }
 
 .second-header {
@@ -69,13 +70,13 @@ fieldset {
 .input-field {
   display: flex;
   flex-wrap: wrap;
-  /* align-items: center; */
-  margin: 2rem 0;
+  margin: 1.5rem 0;
+  /* gap: 10px; */
 }
 
 .input-field > div {
   width: 50%;
-  padding: 8px 0;
+  padding: 2px 0;
 }
 
 input {
@@ -90,12 +91,6 @@ input {
   font-weight: 600;
 }
 
-/* input:invalid {
-  background-color: ivory;
-  border: none;
-  outline: 2px solid rgb(212, 10, 10);
-} */
-
 input:focus,
 .submit-btn:focus {
   border: none;
@@ -106,6 +101,7 @@ input:focus,
   color: red;
   height: 1.5em;
   display: block;
+  /* background-color: aqua; */
 }
 
 .show-password-toggle-tbn {
@@ -121,6 +117,7 @@ input:focus,
 
 #password-condition {
   color: rgb(226, 43, 180);
+  margin: 1rem 0;
 }
 
 .submit-btn {
@@ -131,8 +128,9 @@ input:focus,
   border: none;
 }
 
-p {
+.log-in-instead {
   margin: 1rem 0;
+  margin-right: 2%;
 }
 
 .error {
@@ -153,11 +151,11 @@ p {
 
 .github-signature {
   display: flex;
-  justify-content: right;
   align-items: center;
-  margin-top: -60px;
-  margin-right: 30px;
-  float: right;
+  margin-left: 10px;
+  float: left;
+  position: relative;
+  top: 86%;
 }
 
 .github-signature img {
