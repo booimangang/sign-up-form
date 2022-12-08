@@ -61,12 +61,12 @@ fieldset {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  margin: 3rem 0;
+  margin: 2rem 0;
 }
 
 .input-field > * {
   width: 50%;
-  padding: 10px 0;
+  padding: 6px 0;
 }
 
 input {
@@ -80,6 +80,7 @@ button {
   background-color: rgba(226, 43, 180, 0.8);
   font-size: var(--fs-small);
   padding: 0.2em 0.5em 0.4em;
+  margin-top: 10px;
   border: none;
 }
 
