@@ -85,7 +85,7 @@ fieldset {
 input {
   display: block;
   width: 95%;
-  height: 30px;
+  height: 28px;
   margin: 5px 0;
   padding-left: 5px;
   color: black;
@@ -131,25 +131,16 @@ input:focus,
   border: none;
 }
 
+.form-submit-status {
+  position: fixed;
+  top: 5%;
+  color: white;
+  font-size: var(--fs-small);
+}
+
 .log-in-instead {
   margin: 1rem 0;
   margin-right: 2%;
-}
-
-.error {
-  width: 100%;
-  padding: 0;
-
-  font-size: 80%;
-  color: white;
-  background-color: #900;
-  border-radius: 0 0 5px 5px;
-
-  box-sizing: border-box;
-}
-
-.error.active {
-  padding: 0.3em;
 }
 
 .github-signature {

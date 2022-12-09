@@ -11,6 +11,8 @@ const emailErrorWarning = document.querySelector(".email-warning")
 const passwordErrorWarning = document.querySelector(".invalid-password-warning")
 const unmatchPasswordWarning = document.querySelector(".unmatch-password-warning")
 
+const formSubmitStatus = document.querySelector(".form-submit-status")
+
 
 firstNameInput.addEventListener("input", () => {
     if (firstNameInput.validity.valid) { firstNameErrorWarning.textContent = "" }
@@ -37,34 +39,39 @@ passwordInput.addEventListener("input", () => {
     if (!passwordInput.validity.valueMissing) { passwordErrorWarning.textContent = "" };
 })
 
-function passwordErrorHandler() {
+let passwordStatus;
 
+function passwordErrorHandler() {
     const regexForNumber = /\d/
     const regexForLowercase = /[a-z]/
     const regexForUppercase = /[A-Z]/
 
     if (passwordInput.validity.valueMissing) {
         passwordErrorWarning.textContent = "you must give a password";
+        passwordStatus = false;
     }
     else if (!regexForNumber.test(passwordInput.value)) {
         passwordErrorWarning.textContent = "password must contained at least one number";
+        passwordStatus = false;
     } else if (!regexForLowercase.test(passwordInput.value)) {
         passwordErrorWarning.textContent = "password must contained at least one lowercase character";
+        passwordStatus = false;
     } else if (!regexForUppercase.test(passwordInput.value)) {
         passwordErrorWarning.textContent = "password must contained at least one uppercase character";
-    }
+        passwordStatus = false;
+    } else { passwordStatus = true; }
 }
 
 confirmPasswordInput.addEventListener("input", () => {
-    if (checkPasswordFields(passwordInput.value, confirmPasswordInput.value)) {
+    let passwordFieldStatus = checkPasswordFields()
+    if (passwordFieldStatus) {
         unmatchPasswordWarning.textContent = "";
     }
 })
 
-
-
-function checkPasswordFields(password, confirmedPassword) {
-    return password == confirmedPassword
+function checkPasswordFields() {
+    console.log(passwordInput.value == confirmPasswordInput.value)
+    return passwordInput.value == confirmPasswordInput.value
 }
 
 showPasswordToggleBtn.addEventListener("click", showPasswordToggleHandler)
@@ -95,14 +102,15 @@ function formSubmitHandler(e) {
         e.preventDefault();
     }
 
-    if (!passwordInput.validity.valid) {
-        passwordErrorHandler();
+    passwordErrorHandler();
+
+    if (!passwordStatus) {
+        console.log("password-check")
         e.preventDefault();
     }
 
-    let checkingPasswordFieldsCondition = checkPasswordFields(passwordInput.value, confirmPasswordInput.value)
-
-    if (!checkingPasswordFieldsCondition) {
+    let passwordFieldStatus = checkPasswordFields()
+    if (!passwordFieldStatus) {
         e.preventDefault();
         unmatchPasswordWarning.textContent = "passwords do not match"
     }
