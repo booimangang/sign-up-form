@@ -31,7 +31,6 @@ email.addEventListener("input", () => {
 function emailErrorHandler() {
     if (email.validity.valueMissing) emailErrorWarning.textContent = "you must enter your email"
     else if (email.validity.typeMismatch) emailErrorWarning.textContent = "entered value must be an e-mail address";
-    console.log("email error handling");
 }
 
 passwordInput.addEventListener("input", () => {
@@ -39,10 +38,34 @@ passwordInput.addEventListener("input", () => {
 })
 
 function passwordErrorHandler() {
-    if (passwordInput.validity.valueMissing) passwordErrorWarning.textContent = "you must give a password";
-    else if (passwordInput.validity.patternMismatch) passwordErrorWarning.textContent = "password requirement doesn't meet";
+
+    const regexForNumber = /\d/
+    const regexForLowercase = /[a-z]/
+    const regexForUppercase = /[A-Z]/
+
+    if (passwordInput.validity.valueMissing) {
+        passwordErrorWarning.textContent = "you must give a password";
+    }
+    else if (!regexForNumber.test(passwordInput.value)) {
+        passwordErrorWarning.textContent = "password must contained at least one number";
+    } else if (!regexForLowercase.test(passwordInput.value)) {
+        passwordErrorWarning.textContent = "password must contained at least one lowercase character";
+    } else if (!regexForUppercase.test(passwordInput.value)) {
+        passwordErrorWarning.textContent = "password must contained at least one uppercase character";
+    }
 }
 
+confirmPasswordInput.addEventListener("input", () => {
+    if (checkPasswordFields(passwordInput.value, confirmPasswordInput.value)) {
+        unmatchPasswordWarning.textContent = "";
+    }
+})
+
+
+
+function checkPasswordFields(password, confirmedPassword) {
+    return password == confirmedPassword
+}
 
 showPasswordToggleBtn.addEventListener("click", showPasswordToggleHandler)
 
@@ -64,19 +87,16 @@ function formSubmitHandler(e) {
 
     if (!firstNameInput.validity.valid) {
         firstNameErrorHandler();
-        console.log("submiting fail at first-name invalid");
         e.preventDefault();
     }
 
     if (!email.validity.valid) {
         emailErrorHandler();
-        console.log("submiting fail at email invalid");
         e.preventDefault();
     }
 
     if (!passwordInput.validity.valid) {
         passwordErrorHandler();
-        console.log("submiting fail at password invalid");
         e.preventDefault();
     }
 
@@ -86,11 +106,4 @@ function formSubmitHandler(e) {
         e.preventDefault();
         unmatchPasswordWarning.textContent = "passwords do not match"
     }
-
-    console.log("submitting")
-}
-
-function checkPasswordFields(password, confirmedPassword) {
-    console.log(password == confirmedPassword)
-    return password == confirmedPassword
 }

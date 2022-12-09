@@ -72,6 +72,7 @@
                 type="password"
                 name="confirm-password"
                 id="confirm-password"
+                required
               />
               <span class="error-warning unmatch-password-warning"></span>
               <button
@@ -83,11 +84,11 @@
               </button>
             </div>
           </fieldset>
+          <div id="password-condition">
+            *password must contain 8 or more characters that are of at least one
+            number, and one uppercase and lowercase letter.
+          </div>
           <div>
-            <p id="password-condition">
-              *password must contain 8 or more characters that are of at least
-              one number, and one uppercase and lowercase letter.
-            </p>
             <button type="submit" name="submit" class="submit-btn">
               create account
             </button>
