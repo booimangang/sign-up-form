@@ -14,10 +14,9 @@ const unmatchPasswordWarning = document.querySelector(".unmatch-password-warning
 
 firstNameInput.addEventListener("input", () => {
     if (firstNameInput.validity.valid) { firstNameErrorWarning.textContent = "" }
-    else { showFirstNameError() }
 })
 
-function showFirstNameError() {
+function firstNameErrorHandler() {
     if (firstNameInput.validity.valueMissing) {
         firstNameErrorWarning.textContent = "you need to enter your first-name"
     } else if (firstNameInput.validity.tooShort) {
@@ -26,19 +25,23 @@ function showFirstNameError() {
 }
 
 email.addEventListener("input", () => {
-    if (email.validity.valid) { emailErrorWarning.textContent = "" }
-    else { showEmailError() }
+    if (!email.validity.valueMissing) { emailErrorWarning.textContent = "" }
 })
 
-function showEmailError() {
+function emailErrorHandler() {
     if (email.validity.valueMissing) emailErrorWarning.textContent = "you must enter your email"
-    else if (email.validity.typeMismatch) emailErrorWarning.textContent = "entered value must be an e-mail address"
+    else if (email.validity.typeMismatch) emailErrorWarning.textContent = "entered value must be an e-mail address";
+    console.log("email error handling");
 }
 
+passwordInput.addEventListener("input", () => {
+    if (!passwordInput.validity.valueMissing) { passwordErrorWarning.textContent = "" };
+})
 
-
-
-
+function passwordErrorHandler() {
+    if (passwordInput.validity.valueMissing) passwordErrorWarning.textContent = "you must give a password";
+    else if (passwordInput.validity.patternMismatch) passwordErrorWarning.textContent = "password requirement doesn't meet";
+}
 
 
 showPasswordToggleBtn.addEventListener("click", showPasswordToggleHandler)
@@ -58,19 +61,26 @@ function showPasswordToggleHandler(e) {
 form.addEventListener('submit', formSubmitHandler)
 
 function formSubmitHandler(e) {
-    let checkingPasswordFieldsCondition = checkPasswordFields(passwordInput.value, confirmPasswordInput.value)
 
     if (!firstNameInput.validity.valid) {
-        showFirstNameError();
+        firstNameErrorHandler();
         console.log("submiting fail at first-name invalid");
         e.preventDefault();
     }
 
     if (!email.validity.valid) {
-        showEmailError();
+        emailErrorHandler();
         console.log("submiting fail at email invalid");
         e.preventDefault();
     }
+
+    if (!passwordInput.validity.valid) {
+        passwordErrorHandler();
+        console.log("submiting fail at password invalid");
+        e.preventDefault();
+    }
+
+    let checkingPasswordFieldsCondition = checkPasswordFields(passwordInput.value, confirmPasswordInput.value)
 
     if (!checkingPasswordFieldsCondition) {
         e.preventDefault();

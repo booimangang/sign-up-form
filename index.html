@@ -45,7 +45,7 @@
             </div>
             <div>
               <label for="email">Email (required)</label>
-              <input type="email" name="email" id="email" />
+              <input type="email" name="email" id="email" required />
               <span class="error-warning email-warning"> </span>
             </div>
 
@@ -60,6 +60,7 @@
                 name="password"
                 id="password"
                 pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
+                required
                 aria-describedby="password-condition"
               />
               <span class="error-warning invalid-password-warning"> </span>
