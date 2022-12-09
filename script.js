@@ -63,14 +63,12 @@ function passwordErrorHandler() {
 }
 
 confirmPasswordInput.addEventListener("input", () => {
-    let passwordFieldStatus = checkPasswordFields()
-    if (passwordFieldStatus) {
+    if (checkPasswordFields()) {
         unmatchPasswordWarning.textContent = "";
     }
 })
 
 function checkPasswordFields() {
-    console.log(passwordInput.value == confirmPasswordInput.value)
     return passwordInput.value == confirmPasswordInput.value
 }
 
@@ -90,6 +88,7 @@ function showPasswordToggleHandler(e) {
 
 form.addEventListener('submit', formSubmitHandler)
 
+
 function formSubmitHandler(e) {
 
     if (!firstNameInput.validity.valid) {
@@ -105,12 +104,10 @@ function formSubmitHandler(e) {
     passwordErrorHandler();
 
     if (!passwordStatus) {
-        console.log("password-check")
         e.preventDefault();
     }
 
-    let passwordFieldStatus = checkPasswordFields()
-    if (!passwordFieldStatus) {
+    if (!checkPasswordFields()) {
         e.preventDefault();
         unmatchPasswordWarning.textContent = "passwords do not match"
     }
