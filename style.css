@@ -26,16 +26,6 @@ a {
   color: rgb(226, 43, 180);
 }
 
-.main-header {
-  line-height: 1em;
-  /* font-size: var(--fs-medium); */
-}
-
-.second-header {
-  margin-top: 15px;
-  font-size: var(--fs-small);
-}
-
 .container {
   display: flex;
   align-items: center;
@@ -50,17 +40,31 @@ a {
 
 .title-name {
   position: relative;
-  top: 500px;
+  top: 200px;
   background: rgba(230, 53, 207, 0.5);
   width: 100%;
   text-align: center;
+  text-shadow: 2px 0px #ff0000;
   font-size: var(--fs-big);
   padding: 0.2em 0;
+}
+
+.main-header {
+  line-height: 1em;
+  font-size: var(--fs-medium);
+  position: relative;
+  top: 450px;
+  text-align: center;
+  text-shadow: 2px 0px #ff0000;
 }
 
 .form-field {
   width: 40%;
   margin: auto;
+}
+
+.second-header {
+  font-size: var(--fs-medium);
 }
 
 fieldset {
@@ -70,8 +74,7 @@ fieldset {
 .input-field {
   display: flex;
   flex-wrap: wrap;
-  margin: 1.5rem 0;
-  /* gap: 10px; */
+  margin: 2.5rem 0;
 }
 
 .input-field > div {
@@ -111,7 +114,7 @@ input:focus,
   text-align: right;
   font-size: 1rem;
   color: rgb(226, 43, 180);
-  margin-right: 4.5%;
+  margin-right: 6%;
   float: right;
 }
 
@@ -155,7 +158,7 @@ input:focus,
   margin-left: 10px;
   float: left;
   position: relative;
-  top: 86%;
+  top: 74%;
 }
 
 .github-signature img {

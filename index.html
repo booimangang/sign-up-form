@@ -13,6 +13,10 @@
     <main class="container main">
       <div class="img-container">
         <h1 class="title-name">PERIPHERAL</h1>
+        <h1 class="main-header">
+          explore alternate realities through the technology of
+          <span class="highlighted">quantum tunneling</span>.
+        </h1>
         <div class="github-signature">
           <a href="http://https://github.com/booimangang">Bo Ma</a>
           <img src="./img/github.png" alt="" />
@@ -20,15 +24,10 @@
       </div>
       <div class="form-field">
         <div class="information-region">
-          <h1 class="main-header">
-            explore alternate realities through the technology of
-            <span class="highlighted">quantum tunneling</span>.
-          </h1>
           <h2 class="second-header">sign up now to get started.</h2>
         </div>
-        <form id="form">
+        <form id="form" novalidate>
           <fieldset class="input-field">
-            <!-- <legend>Fill in the required information</legend> -->
             <div>
               <label for="first-name">First Name (required)</label>
               <input
@@ -36,6 +35,7 @@
                 name="first-name"
                 id="first-name"
                 minlength="4"
+                required
               />
               <span class="error-warning first-name-warning"></span>
             </div>
@@ -60,13 +60,10 @@
                 name="password"
                 id="password"
                 pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
-                required
                 aria-describedby="password-condition"
               />
               <span class="error-warning invalid-password-warning"> </span>
             </div>
-
-            <!-- pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"  -->
 
             <div>
               <label for="confirm-password">Confirm Password (required)</label>

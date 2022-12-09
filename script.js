@@ -1,5 +1,6 @@
 const form = document.getElementById('form');
 const firstNameInput = document.querySelector(`[name="first-name"]`);
+const email = document.querySelector("#email")
 const passwordInput = document.querySelector(`#password`);
 const confirmPasswordInput = document.querySelector(`#confirm-password`);
 const showPasswordToggleBtn = document.querySelector(".show-password-toggle-tbn")
@@ -10,14 +11,35 @@ const emailErrorWarning = document.querySelector(".email-warning")
 const passwordErrorWarning = document.querySelector(".invalid-password-warning")
 const unmatchPasswordWarning = document.querySelector(".unmatch-password-warning")
 
-firstNameInput.addEventListener("invalid", () => {
-    if (firstNameInput.validity.tooShort) {
-        console.log("First name too short")
-    }
-    // firstNameInput.setCustomValidity("bdhjffb")
+
+firstNameInput.addEventListener("input", () => {
+    if (firstNameInput.validity.valid) { firstNameErrorWarning.textContent = "" }
+    else { showFirstNameError() }
 })
 
-const error = document.querySelector("#mail + span.error")
+function showFirstNameError() {
+    if (firstNameInput.validity.valueMissing) {
+        firstNameErrorWarning.textContent = "you need to enter your first-name"
+    } else if (firstNameInput.validity.tooShort) {
+        firstNameErrorWarning.textContent = "name must be at least 4 characters"
+    }
+}
+
+email.addEventListener("input", () => {
+    if (email.validity.valid) { emailErrorWarning.textContent = "" }
+    else { showEmailError() }
+})
+
+function showEmailError() {
+    if (email.validity.valueMissing) emailErrorWarning.textContent = "you must enter your email"
+    else if (email.validity.typeMismatch) emailErrorWarning.textContent = "entered value must be an e-mail address"
+}
+
+
+
+
+
+
 
 showPasswordToggleBtn.addEventListener("click", showPasswordToggleHandler)
 
@@ -37,6 +59,18 @@ form.addEventListener('submit', formSubmitHandler)
 
 function formSubmitHandler(e) {
     let checkingPasswordFieldsCondition = checkPasswordFields(passwordInput.value, confirmPasswordInput.value)
+
+    if (!firstNameInput.validity.valid) {
+        showFirstNameError();
+        console.log("submiting fail at first-name invalid");
+        e.preventDefault();
+    }
+
+    if (!email.validity.valid) {
+        showEmailError();
+        console.log("submiting fail at email invalid");
+        e.preventDefault();
+    }
 
     if (!checkingPasswordFieldsCondition) {
         e.preventDefault();
